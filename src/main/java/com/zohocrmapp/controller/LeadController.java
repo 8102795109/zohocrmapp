@@ -25,7 +25,8 @@ public class LeadController {
 	
 	@Autowired
 	private ContactService contactService;
-	
+
+
 	
 //http://localhost:9090/zohocrmapp/viewCreateLeadPage
 	@GetMapping("/viewCreateLeadPage")
@@ -53,7 +54,8 @@ Lead lead=leadService.findLeadById(id);
  
  contactService.saveContact(contact);
  leadService.deleteLeadById(id);
- 
+
+
  List<Contact> contacts = contactService.getAllContacts();
 		model.addAttribute("contacts", contacts);
 		return "list_contacts";

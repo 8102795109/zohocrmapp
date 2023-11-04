@@ -11,8 +11,7 @@ import com.zohocrmapp.services.ContactService;
 
 @Controller
 public class ContactController {
-	
-	
+
 	private ContactService contactService;
 	
 	public ContactController(ContactService contactService) {
@@ -32,13 +31,11 @@ public class ContactController {
 		return "list_contacts";
 		
 	}
-	
 	@RequestMapping("/contactInfo")
 	public String contactInfo(@RequestParam("id")long id, Model model) {
 	 Contact contact = contactService.findContactById(id);
 	model.addAttribute("contact", contact);
 	return "contact_info";
 	}
-	
 
 }

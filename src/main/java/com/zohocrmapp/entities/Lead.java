@@ -1,5 +1,7 @@
 package com.zohocrmapp.entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,15 +18,19 @@ public class Lead {
 	private long id;
 	
 	@Column(name="first_name", nullable=false, length=45)
+	@JsonProperty("first_name")
 	private String firstName;
 	
 	@Column(name="last_name", nullable=false, length=45)
+	@JsonProperty("last_name")
 	private String lastName;
 	
 	@Column(name="email", nullable=false,unique=true,length=128)
+	@JsonProperty("email")
 	private String email;
 	
 	@Column(name="mobile", nullable=false,unique=true,length=10)
+	@JsonProperty("mobile")
 	private long mobile;
 	
 	private String source;
@@ -66,6 +72,16 @@ public class Lead {
 	public void setSource(String source) {
 		this.source = source;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "Lead{" +
+				"id=" + id +
+				", firstName='" + firstName + '\'' +
+				", lastName='" + lastName + '\'' +
+				", email='" + email + '\'' +
+				", mobile=" + mobile +
+				", source='" + source + '\'' +
+				'}';
+	}
 }
